@@ -6,11 +6,11 @@
   justify-content: space-between;
   align-items: center;
   padding-left: 2.5rem;
+  padding-right: 2.5rem;
 
-  background: linear-gradient(var(--red-secondary), var(--red-primary));
-  border-bottom: 3px solid var(--red-secondary);
+  background: linear-gradient(var(--red-secondary), var(--background));
 
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .menuContainer img {
