@@ -38,10 +38,13 @@ function PokemonContainer(props: IPokemon) {
   }, [url]);
 
   const pokemonName = pokemon?.name.toUpperCase();
+  const pokemonIndex = pokemon?.id;
   const pokemonArtwork = pokemon?.sprites.other['official-artwork'].front_default;
 
   return (
     <div className={styles.pokemonContainer}>
+      <span>{pokemonIndex}</span>
+
       <a href="/">
         <img src={pokemonArtwork} alt={pokemonName} />
       </a>

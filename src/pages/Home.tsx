@@ -12,13 +12,21 @@ function Home() {
       .get('https://pokeapi.co/api/v2/pokemon')
       .then((res: AxiosResponse) => {
         const allPokemons: IPokemon[] = res.data.results;
+        //console.log(allPokemons);
         setPokemons(allPokemons);
       })
       .catch((err: AxiosError) => console.error(err));
   }
 
+  const hasReachedPageBottom = () => {
+    if (window.innerHeight + document.documentElement.scrollTop === document.scrollingElement?.scrollHeight) {
+      console.log('Reached!');
+    }
+  };
+
   useEffect(() => {
     fetchPokemons();
+    window.addEventListener('scroll', hasReachedPageBottom);
   }, []);
 
   return (
