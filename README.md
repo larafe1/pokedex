@@ -1,12 +1,12 @@
 <p align="center">
   <a href="https://github.com/felpshn/pokedex">
-    <img src="https://github.com/felpshn/pokedex/blob/master/src/assets/pokedex-logo.png">
+    <img src="https://github.com/felpshn/pokedex/blob/master/public/pokedex-logo.png">
   </a>
 </p>
 
 <p align="center">
   <a href="https://github.com/felpshn/pokedex/releases/">
-    <img src="https://img.shields.io/badge/version-1.0-lightgrey">
+    <img src="https://img.shields.io/badge/version-1.x-lightgrey">
   </a>
   <a href="https://github.com/felpshn/pokedex/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-orange">
