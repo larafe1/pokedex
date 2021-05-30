@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
 import { IPokemon } from '../types';
@@ -7,11 +7,11 @@ import { PokemonContainer } from '../components/PokemonContainer';
 
 function Home() {
   const [pokemons, setPokemons] = useState<IPokemon[]>([]);
-  let value = 0;
+  const renderCount = useRef(20);
 
   const handleFetchPokemons = async () => {
     await axios
-      .get(`https://pokeapi.co/api/v2/pokemon?limit=${value}`)
+      .get(`https://pokeapi.co/api/v2/pokemon?limit=${renderCount.current}`)
       .then(async (res: AxiosResponse) => {
         const allPokemons: IPokemon[] = res.data.results;
 
@@ -19,8 +19,8 @@ function Home() {
           allPokemons.map(async pokemon => {
             return await axios
               .get(pokemon.url)
-              .then(({ data }: AxiosResponse<IPokemon>) => { return data })
-              .catch((err: AxiosError) => console.error(err)) as IPokemon;
+              .then(({ data }: AxiosResponse) => { return data })
+              .catch((err: AxiosError) => console.error(err));
           })
         );
         setPokemons(getPokemonsData);
@@ -30,8 +30,8 @@ function Home() {
 
   const hasReachedPageBottom = useCallback(() => {
     if (window.innerHeight + document.documentElement.scrollTop === document.scrollingElement?.scrollHeight) {
-      value += 20;
       handleFetchPokemons();
+      renderCount.current += 20;
     }
   }, []);
 
@@ -44,7 +44,7 @@ function Home() {
     <main>
       <Menu />
 
-      {pokemons.length === 0 && (<div><h3>Loading Pokédex...</h3></div>)}
+      {pokemons.length === 0 && (<h3>Loading Pokédex...</h3>)}
 
       {pokemons.map((pokemon, index) => {
         return (
