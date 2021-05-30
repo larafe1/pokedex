@@ -5,12 +5,11 @@
 }
 
 :root {
-  --white: #fff;
   --background: #d1e6ee;
-  --text: #8a8a8a;
   --gray-lighter: #ebe8e8;
-  --red-primary: #f56a79;
-  --red-secondary: #ff414d;
+  --gray-darker: #7c7b7b;
+  --red-lighter: #fc7d7d;
+  --red-vibrant: #ff4141;
 }
 
 @media(max-width: 1000px) {
@@ -27,11 +26,11 @@
 
 body {
   background: var(--background);
-  color: var(--text);
+  color: var(--gray-darker);
 }
 
 body, input, textarea, button {
-  font: 400 1rem "Nunito", sans-serif;
+  font: 400 1rem "Heebo", sans-serif;
 
   border: none;
   outline: inherit;
