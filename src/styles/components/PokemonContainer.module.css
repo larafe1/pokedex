@@ -1,13 +1,13 @@
 .pokemonContainer {
   width: 15%;
   height: 100%;
-  margin: 40px;
+  margin: 38.5px;
 
   display: inline-block;
   align-items: center;
   justify-content: center;
 
-  border-radius: 10px;
+  border-radius: 8px;
   border: 3px solid var(--gray-lighter);
 
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -30,13 +30,13 @@
   justify-content: center;
 }
 
-.pokemonContainer span {
-  width: 25%;
+.pokemonContainer > span {
+  width: 20%;
   height: 1.4rem;
   margin: -1px;
 
   display: flex;
-  align-items: initial;
+  align-items: center;
   justify-content: center;
 
   font-weight: 600;
@@ -47,18 +47,20 @@
 }
 
 .pokemonInfo {
-  width: 100%;
-  height: 3.2rem;
+  width: 100.3%;
+  height: 3.5rem;
 
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  
-  border-bottom: 3px solid var(--gray-lighter);
 
   background: var(--gray-lighter);
 }
 
-.pokemonInfo span {
+.pokemonInfo > span {
   font-weight: 600;
+}
+
+.pokemonInfo ul {
+  list-style: none;
 }

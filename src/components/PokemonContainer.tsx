@@ -14,22 +14,28 @@ function PokemonContainer(props: IPokemon) {
   const pokemonName = name.toUpperCase();
   const pokemonArtwork = sprites.other['official-artwork'].front_default;
   const { data } = usePalette(pokemonArtwork);
+  const pokemonUrl = 'pokemon/' + id;
 
   return (
-    <div className={styles.pokemonContainer} style={{backgroundColor: data.lightVibrant}}>
+    <div
+    className={styles.pokemonContainer} 
+    style={{backgroundColor: data.lightVibrant}}
+    >
       <span>{id}</span>
 
-      <a href="/">
+      <a href={pokemonUrl}>
         <img src={pokemonArtwork} alt={pokemonName} />
       </a>
 
       <div className={styles.pokemonInfo}>
         <span>{pokemonName}</span>
-        {types.map(({ type }) => {
-          return (
-            <li id={styles.list}>{type.name}</li>
-          );
-        })}
+        <ul>
+          {types.map(({ type }) => {
+            return (
+              <li>{type.name}</li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );

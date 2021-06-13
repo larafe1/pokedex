@@ -1,13 +1,14 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
+import styles from '../styles/pages/Home.module.css';
 import { IPokemon } from '../types';
 import { Menu } from '../components/Menu';
 import { PokemonContainer } from '../components/PokemonContainer';
 
 function Home() {
   const [pokemons, setPokemons] = useState<IPokemon[]>([]);
-  const renderCount = useRef(20);
+  const renderCount = useRef(60);
 
   const handleFetchPokemons = async () => {
     await axios
@@ -41,17 +42,20 @@ function Home() {
   }, [hasReachedPageBottom]);
 
   return (
-    <main>
+    <>
       <Menu />
+      <main>
+        <div className={styles.loadingState}>
+          {pokemons.length === 0 && (<h3>Loading Pokédex...</h3>)}
+        </div>
 
-      {pokemons.length === 0 && (<h3>Loading Pokédex...</h3>)}
-
-      {pokemons.map((pokemon, index) => {
-        return (
-          <PokemonContainer key={index} {...pokemon} />
-        );
-      })}
-    </main>
+        {pokemons.map((pokemon, index) => {
+          return (
+            <PokemonContainer key={index} {...pokemon} />
+          );
+        })}
+      </main>
+    </>
   );
 }
 

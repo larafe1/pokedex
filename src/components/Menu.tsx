@@ -3,12 +3,12 @@ import pokedexIcon from '../assets/pokedex-icon.png';
 
 function Menu() {
   return (
-    <div className={styles.menuContainer}>
+    <nav className={styles.menuContainer}>
       <a href="/">
         <img src={pokedexIcon} alt="Pokédex Icon" />
         <h3>Pokédex</h3>
       </a>
-    </div>
+    </nav>
   );
 }
 
