@@ -1,0 +1,21 @@
+.pokemonStatsContainer {
+  padding-top: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--light-gray);
+}
+
+.loadingState {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+}

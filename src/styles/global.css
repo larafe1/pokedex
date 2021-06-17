@@ -6,10 +6,10 @@
 
 :root {
   --background: #e1e5ea;
-  --gray-lighter: #e8e8e8;
-  --gray-darker: #02475e;
-  --red-lighter: #f05454;
-  --red-vibrant: #ce1212;
+  --light-gray: #e8e8e8;
+  --dark-blue: #02475e;
+  --light-red: #f05454;
+  --dark-red: #ce1212;
 }
 
 @media(max-width: 1000px) {
@@ -26,7 +26,7 @@
 
 body {
   background: var(--background);
-  color: var(--gray-darker);
+  color: var(--dark-blue);
 }
 
 body, input, textarea, button {

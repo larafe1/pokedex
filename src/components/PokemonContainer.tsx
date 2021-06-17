@@ -1,42 +1,37 @@
+import { Link } from 'react-router-dom';
 import { usePalette } from 'react-palette';
 
 import styles from '../styles/components/PokemonContainer.module.css';
-import { IPokemon } from '../types';
+import { IPokemonEssentials } from '../types';
 
-function PokemonContainer(props: IPokemon) {
-  const {
-    name,
-    id,
-    types,
-    sprites
-  } = props;
+function PokemonContainer(props: IPokemonEssentials) {
+  let pokemon: IPokemonEssentials = {
+    name: props.name.toUpperCase(),
+    url: props.url,
+    index: props.url!.split('/')[props.url!.split('/').length - 2],
+    artworkUrl: ''
+  }
 
-  const pokemonName = name.toUpperCase();
-  const pokemonArtwork = sprites.other['official-artwork'].front_default;
-  const { data } = usePalette(pokemonArtwork);
-  const pokemonUrl = 'pokemon/' + id;
+  pokemon.artworkUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.index}.png`;
+  const { data } = usePalette(pokemon.artworkUrl);
 
   return (
     <div
-    className={styles.pokemonContainer} 
-    style={{backgroundColor: data.lightVibrant}}
+      className={styles.pokemonContainer}
+      style={{backgroundColor: data.lightVibrant}}
     >
-      <span>{id}</span>
+      <span>{pokemon.index}</span>
 
-      <a href={pokemonUrl}>
-        <img src={pokemonArtwork} alt={pokemonName} />
-      </a>
+      <Link 
+        to={{ 
+          pathname: `pokemon/${pokemon.index}`, 
+          state: {...pokemon}
+        }}
+      >
+        <img src={pokemon.artworkUrl} alt={pokemon.artworkUrl} />
+      </Link>
 
-      <div className={styles.pokemonInfo}>
-        <span>{pokemonName}</span>
-        <ul>
-          {types.map(({ type }) => {
-            return (
-              <li>{type.name}</li>
-            );
-          })}
-        </ul>
-      </div>
+      <span>{pokemon.name}</span>
     </div>
   );
 }

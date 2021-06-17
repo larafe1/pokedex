@@ -9,7 +9,7 @@
   position: fixed;
   z-index: 1;
 
-  background: var(--red-lighter);
+  background: var(--light-red);
 
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
@@ -25,14 +25,14 @@
   color: #fff;
   text-decoration: none;
   
-  background: var(--red-vibrant);
-  border-bottom: 2px solid var(--red-vibrant);
+  background: var(--dark-red);
+  border-bottom: 2px solid var(--dark-red);
 
   transition: .2s;
 }
 
 .menuContainer a:hover {
-  border-color: var(--gray-lighter);
+  border-color: var(--light-gray);
 }
 
 .menuContainer a img {

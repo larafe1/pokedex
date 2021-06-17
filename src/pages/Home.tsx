@@ -2,37 +2,27 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
 import styles from '../styles/pages/Home.module.css';
-import { IPokemon } from '../types';
-import { Menu } from '../components/Menu';
+import { IPokemonEssentials } from '../types';
 import { PokemonContainer } from '../components/PokemonContainer';
 
 function Home() {
-  const [pokemons, setPokemons] = useState<IPokemon[]>([]);
-  const renderCount = useRef(60);
+  const [pokemons, setPokemons] = useState<IPokemonEssentials[]>([]);
+  const renderCount = useRef(100);
 
   const handleFetchPokemons = async () => {
     await axios
       .get(`https://pokeapi.co/api/v2/pokemon?limit=${renderCount.current}`)
       .then(async (res: AxiosResponse) => {
-        const allPokemons: IPokemon[] = res.data.results;
-
-        const getPokemonsData = await Promise.all(
-          allPokemons.map(async pokemon => {
-            return await axios
-              .get(pokemon.url)
-              .then(({ data }: AxiosResponse) => { return data })
-              .catch((err: AxiosError) => console.error(err));
-          })
-        );
-        setPokemons(getPokemonsData);
+        const allPokemons: IPokemonEssentials[] = res.data.results;
+        setPokemons([...pokemons, ...allPokemons]);
+        renderCount.current += 50;
       })
       .catch((err: AxiosError) => console.error(err));
   }
 
-  const hasReachedPageBottom = useCallback(() => {
+  const hasReachedPageBottom = useCallback(async () => {
     if (window.innerHeight + document.documentElement.scrollTop === document.scrollingElement?.scrollHeight) {
-      handleFetchPokemons();
-      renderCount.current += 20;
+      await handleFetchPokemons();
     }
   }, []);
 
@@ -42,20 +32,19 @@ function Home() {
   }, [hasReachedPageBottom]);
 
   return (
-    <>
-      <Menu />
-      <main>
-        <div className={styles.loadingState}>
-          {pokemons.length === 0 && (<h3>Loading Pokédex...</h3>)}
-        </div>
+    <main>
+      <div className={styles.loadingState}>
+        {pokemons.length === 0 && (<h3>Loading Pokédex...</h3>)}
+      </div>
 
+      <div className={styles.mainContent}>
         {pokemons.map((pokemon, index) => {
           return (
             <PokemonContainer key={index} {...pokemon} />
           );
         })}
-      </main>
-    </>
+      </div>
+    </main>
   );
 }
 

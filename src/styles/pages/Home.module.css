@@ -9,3 +9,7 @@ main {
   align-items: center;
   justify-content: center;
 }
+
+.mainContent {
+  text-align: center;
+}
