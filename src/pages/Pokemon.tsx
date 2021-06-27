@@ -29,6 +29,7 @@ function Pokemon() {
     handleFetchPokemonStats();
   }, [handleFetchPokemonStats]);
 
+  console.log(pokemonStats);
   return (
     <main>
       <div className={styles.loadingState}>
@@ -36,19 +37,35 @@ function Pokemon() {
       </div>
 
       <div className={styles.pokemonStatsContainer}>
-        <span>{state.name}</span>
-        <span>Global Index: {state.index}</span>
-        <img src={state.artworkUrl} alt={state.name} />
-        <span>Weight: {pokemonStats?.weight}</span>
-        <span>Height: {pokemonStats?.height}</span>
-        <span>Capture Rate: {pokemonStats?.capture_rate}</span>
-        <ul>
-          {pokemonStats?.types.map(({ type }, index) => {
-            return (
-              <li key={index}>{type.name}</li>
-            );
-          })}
-        </ul>
+        <div className={styles.statsHeader}>
+          <h3>{state.index}</h3>
+          <ul>
+            {pokemonStats?.types.map(({ type }, index) => {
+              return (
+                <li key={index}>{type.name}</li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className={styles.statsBody}>
+          <img src={state.artworkUrl} alt={state.name} />
+          <div className={styles.basicInfoName}>
+            <h3>{state.name}</h3>
+            <span>HP</span>
+            <span>Attack</span>
+            <span>Defense</span>
+            <span>Speed</span>
+            <span>Sp Atk</span>
+            <span>Sp Def</span>
+          </div>
+          <div className={styles.basicInfoValue}>
+
+          </div>
+        </div>
+        <div className={styles.statsFooter}>
+          <span>Height: {pokemonStats?.height}</span>
+          <span>Weight: {pokemonStats?.weight}</span>
+        </div>
       </div>
     </main>
   );

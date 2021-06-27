@@ -29,6 +29,10 @@ body {
   color: var(--dark-blue);
 }
 
+ul {
+  list-style: none;
+}
+
 body, input, textarea, button {
   font: 400 1rem "Montserrat", sans-serif;
 

@@ -18,7 +18,7 @@ function Home() {
         renderCount.current += 50;
       })
       .catch((err: AxiosError) => console.error(err));
-  }
+  };
 
   const hasReachedPageBottom = useCallback(async () => {
     if (window.innerHeight + document.documentElement.scrollTop === document.scrollingElement?.scrollHeight) {
