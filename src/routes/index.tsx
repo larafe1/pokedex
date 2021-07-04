@@ -1,9 +1,9 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { Home } from '../pages/Home';
-import { Pokemon } from '../pages/Pokemon';
+import Home from '../pages/Home';
+import Pokemon from '../pages/Pokemon';
 
-function Routes() {
+export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
@@ -13,5 +13,3 @@ function Routes() {
     </BrowserRouter>
   );
 }
-
-export { Routes };

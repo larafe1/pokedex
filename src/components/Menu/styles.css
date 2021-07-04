@@ -1,4 +1,4 @@
-.menuContainer {
+nav {
   width: 100%;
   height: 55px;
 
@@ -14,7 +14,7 @@
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
-.menuContainer a {
+nav a {
   height: 100%;
   width: 11rem;
   
@@ -31,11 +31,11 @@
   transition: .2s;
 }
 
-.menuContainer a:hover {
+nav a:hover {
   border-color: var(--light-gray);
 }
 
-.menuContainer a img {
+nav a img {
   max-width: 23.5%;
   padding-right: 0.6rem;
 }

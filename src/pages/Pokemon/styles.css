@@ -1,0 +1,130 @@
+.loading-state {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokemon-stats-container {
+  position: absolute;
+  inset: 12.5% 25% 12.5% 25%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.container-header {
+  width: 100%;
+  height: 15%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid var(--light-gray);
+  box-shadow: 0 2px 2px rgba(49, 49, 49, 0.2);
+
+  background: var(--light-gray);
+}
+
+.container-header h3 {
+  position: relative;
+  left: 2rem;
+}
+
+.container-header span {
+  position: absolute;
+  right: 2rem;
+
+  width: 6.2rem;
+  height: 1.6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+  border: 1px solid yellowgreen;
+
+  background: yellow;
+}
+
+.container-main-content {
+  height: 50%;
+  width: 100%;
+
+  display: flex;
+
+  padding-bottom: 6rem;
+}
+
+.container-main-content img {
+  position: relative;
+  top: 3rem;
+  left: 3rem;
+
+  max-width: 40%;
+}
+
+.container-main-content-stats {
+  width: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  position: relative;
+  left: 20%;
+}
+
+.hp-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.hp-progress-container {
+  position: absolute;
+  left: 150%;
+  height: 1rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+
+  border-radius: .25rem;
+
+  background: var(--light-gray);
+}
+
+.hp-progressbar {
+  border-radius: .25rem;
+
+  background-color: var(--dark-blue);
+}
+
+.hp-progressbar small {
+  color: var(--light-gray);
+}
+
+.container-footer {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  border-top: 2px solid var(--light-gray);
+  box-shadow: 0 0 2px rgba(49, 49, 49, 0.2);
+  background: var(--light-gray);
+
+  border-radius: 0 0 5px 5px;
+}
