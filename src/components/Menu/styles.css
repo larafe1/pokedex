@@ -23,12 +23,13 @@ nav a {
   justify-content: center;
   
   color: #fff;
+  font-family: 'Chakra Petch', sans-serif;
   text-decoration: none;
   
   background: var(--dark-red);
   border-bottom: 2px solid var(--dark-red);
 
-  transition: .2s;
+  transition: border .2s;
 }
 
 nav a:hover {

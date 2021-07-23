@@ -1,13 +1,14 @@
 import './styles/global.css';
-import Routes from './routes';
 import Menu from './components/Menu';
+import Routes from './routes';
+import { PokemonContextProvider } from './contexts/PokemonContext';
 
 function App() {
   return (
-    <>
+    <PokemonContextProvider>
       <Menu />
       <Routes />
-    </>
+    </PokemonContextProvider>
   );
 }
 

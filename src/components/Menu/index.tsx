@@ -6,7 +6,7 @@ export default function Menu() {
     <nav>
       <a href="/">
         <img src={pokedexIcon} alt="Pokédex Icon" />
-        <h3>Pokédex</h3>
+        <h2>Pokédex</h2>
       </a>
     </nav>
   );

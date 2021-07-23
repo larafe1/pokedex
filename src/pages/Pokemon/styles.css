@@ -1,12 +1,4 @@
-.loading-state {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pokemon-stats-container {
+.div__pokemon-stats {
   position: absolute;
   inset: 12.5% 25% 12.5% 25%;
 
@@ -18,7 +10,7 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
-.container-header {
+.pokemon-stats__header {
   width: 100%;
   height: 15%;
 
@@ -33,12 +25,12 @@
   background: var(--light-gray);
 }
 
-.container-header h3 {
+.pokemon-stats__header h3 {
   position: relative;
   left: 2rem;
 }
 
-.container-header span {
+.pokemon-stats__header span {
   position: absolute;
   right: 2rem;
 
@@ -55,7 +47,7 @@
   background: yellow;
 }
 
-.container-main-content {
+.pokemon-stats__body {
   height: 50%;
   width: 100%;
 
@@ -64,15 +56,16 @@
   padding-bottom: 6rem;
 }
 
-.container-main-content img {
+.pokemonstats__body img {
   position: relative;
+
   top: 3rem;
   left: 3rem;
 
   max-width: 40%;
 }
 
-.container-main-content-stats {
+.pokemon-stats__body--main-stats {
   width: 50;
   display: flex;
   flex-direction: column;
@@ -82,14 +75,14 @@
   left: 20%;
 }
 
-.hp-section {
+.main-stats__hp {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 
-.hp-progress-container {
+.main-stats__hp-container {
   position: absolute;
   left: 150%;
   height: 1rem;
@@ -114,7 +107,7 @@
   color: var(--light-gray);
 }
 
-.container-footer {
+.pokemon-stats__footer {
   height: 100%;
   width: 100%;
 

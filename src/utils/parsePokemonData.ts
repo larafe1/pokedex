@@ -43,7 +43,7 @@ export default function parsePokemonData({
   const flavorTextFiltered = flavor_text_entries.filter(txt => {
     if (txt.language.name === 'en') {
       return txt.flavor_text;
-    }
+    } else return '';
   });
 
   stats.forEach(stat => {

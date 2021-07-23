@@ -2,7 +2,7 @@ main {
   padding-top: 60px;
 }
 
-.loading-state {
+.div__loading-state {
   width: 100%;
 
   display: flex;
@@ -10,6 +10,6 @@ main {
   justify-content: center;
 }
 
-.main-content {
+.div__main-content {
   text-align: center;
 }
