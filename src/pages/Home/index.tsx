@@ -1,11 +1,11 @@
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
 import './styles.css';
 import PokemonCard from '../../components/PokemonCard';
 import { IPokemonEssentials } from '../../types';
 
-function Home() {
+export default function Home() {
   const [pokemons, setPokemons] = useState<IPokemonEssentials[]>([]);
   const renderCount = useRef(80);
 
@@ -37,11 +37,11 @@ function Home() {
 
   return (
     <main>
-      <div className="loading-state">
+      <div className="div__loading-state">
         {pokemons.length === 0 && (<h3>Loading Pokédex</h3>)}
       </div>
 
-      <div className="main-content">
+      <div className="div__main-content">
         {pokemons.map((pokemon, index) => {
           return (
             <PokemonCard key={index} {...pokemon} />
@@ -51,5 +51,3 @@ function Home() {
     </main>
   );
 }
-
-export default Home;

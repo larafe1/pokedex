@@ -1,8 +1,19 @@
+import { ReactNode, Dispatch, SetStateAction } from 'react';
+
+export type ContextProviderProps = {
+  children: ReactNode;
+}
+
+export interface IPokemonContext {
+  pokemon: IPokemonEssentials | undefined;
+  setPokemon: Dispatch<SetStateAction<IPokemonEssentials>>;
+}
+
 export interface IPokemonEssentials {
   name: string;
   url: string;
-  pokemonIndex: number;
-  pokemonArtworkUrl: string;
+  pokedexIndex: number;
+  artworkUrl: string;
 }
 
 export interface IPokemonRawStats extends IPokemonEssentials {

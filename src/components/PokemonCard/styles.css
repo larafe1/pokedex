@@ -1,30 +1,32 @@
-.pokemon-card {
+.div__pokemon-card {
   width: 15%;
   margin: 38.5px;
 
   display: inline-flex;
   flex-direction: column;
-  overflow: hidden;
 
   border-radius: 8px;
   border: 2px solid var(--light-gray);
 
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 
-  transition: box-shadow .2s ease-in-out;
+  transition: all .2s;
 }
 
-.pokemon-card:hover {
+.div__pokemon-card:hover {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  transform: translateY(-6px);
 }
 
-.pokemon-card a img {
+.div__pokemon-card img {
+  max-width: 30%;
+}
+
+.div__pokemon-card img:last-child {
   max-width: 70%;
-
-  padding-top: 1rem;
 }
 
-.pokemon-card span {
+.div__pokemon-card span {
   width: 2.5rem;
   height: 1.5rem;
   margin: -1px;
@@ -41,7 +43,7 @@
   background: var(--light-gray);
 }
 
-.pokemon-card h4 {
+.div__pokemon-card h4 {
   width: 100%;
   height: 2.5rem;
 
