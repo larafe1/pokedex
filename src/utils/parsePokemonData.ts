@@ -22,14 +22,18 @@ export default function parsePokemonData({
   let specialAttack = 0;
   let specialDefense = 0;
 
+  function capitalizeFirstLetter(value: string) {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+
   const height = Math.round((rawHeight * 0.328084 + 0.00001) * 100) / 100;
   const weight = Math.round((rawWeight * 0.220462 + 0.00001) * 100) / 100;
   const genderRatioFemale = 12.5 * gender_rate;
   const genderRatioMale = 12.5 * (8 - gender_rate);
-  const habitat = rawHabitat.name;
+  const habitat = capitalizeFirstLetter(rawHabitat.name);
 
   const types = rawTypes.map(({ type }) => {
-    return type.name;
+    return capitalizeFirstLetter(type.name);
   });
 
   const abilities = rawAbilities.map(ability => {
@@ -40,7 +44,7 @@ export default function parsePokemonData({
       .join(' ');
   });
 
-  const flavorTextFiltered = flavor_text_entries.filter(txt => {
+  const flavorTextFiltered = flavor_text_entries.some(txt => {
     if (txt.language.name === 'en') {
       return txt.flavor_text;
     } else return '';

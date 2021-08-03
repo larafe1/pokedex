@@ -40,7 +40,7 @@ export default function Pokemon() {
         <div className="pokemon-stats__header">
           <h3>{pokemon!.pokedexIndex}</h3>
           {pokemonStats?.isLegendary && (
-            <span>Legendary</span>
+            <em>Legendary</em>
           )}
         </div>
         <div
@@ -48,24 +48,31 @@ export default function Pokemon() {
           style={{backgroundColor: data.lightVibrant}}
         >
           {isLoading && (
-            <img src={loadingGif} alt="Loading" />
+            <img 
+              src={loadingGif} 
+              alt="Loading" 
+              style={{maxWidth: '75%'}} 
+            />
           )}
-          <img
-            src={pokemon!.artworkUrl}
-            alt={pokemon!.name}
-            style={{display: isLoading ? 'none' : 'initial'}}
-            onLoad={() => setIsLoading(false)}
-          />
+          <div className="pokemon-stats__body--img-container">
+            <img
+              src={pokemon!.artworkUrl}
+              alt={pokemon!.name}
+              style={{display: isLoading ? 'none' : 'initial'}}
+              onLoad={() => setIsLoading(false)}
+            />
+          </div>
 
           <div className="pokemon-stats__body--main-stats">
-            <h3>{pokemon!.name.toUpperCase()}</h3>
+            <h2>{pokemon!.name.toUpperCase()}</h2>
 
-            <div className="main-stats__hp">
-              <span>HP</span>
-              <div className="main-stats__hp-container">
+            <div className="main-stats">
+              <strong>HP</strong>
+              <div className="main-stats__progress-container">
                 <div
-                  className="hp-progressbar"
+                  className="progressbar"
                   role="progressbar"
+                  style={{width: `${pokemonStats?.hp}%`}}
                   aria-valuemin={0}
                   aria-valuemax={100}
                 >
@@ -73,33 +80,95 @@ export default function Pokemon() {
                 </div>
               </div>
             </div>
-
-            <span>Attack: {pokemonStats?.attack}</span>
+            <div className="main-stats">
+              <strong>Attack</strong>
+              <div className="main-stats__progress-container">
+                <div
+                  className="progressbar"
+                  role="progressbar"
+                  style={{width: `${pokemonStats?.attack}%`}}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                >
+                  <small>{pokemonStats?.attack}</small>
+                </div>
+              </div>
+            </div>
+            <div className="main-stats">
+              <strong>Defense</strong>
+              <div className="main-stats__progress-container">
+                <div
+                  className="progressbar"
+                  role="progressbar"
+                  style={{width: `${pokemonStats?.defense}%`}}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                >
+                  <small>{pokemonStats?.defense}</small>
+                </div>
+              </div>
+            </div>
+            <div className="main-stats">
+              <strong>Special Attack</strong>
+              <div className="main-stats__progress-container">
+                <div
+                  className="progressbar"
+                  role="progressbar"
+                  style={{width: `${pokemonStats?.specialAttack}%`}}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                >
+                  <small>{pokemonStats?.specialAttack}</small>
+                </div>
+              </div>
+            </div>
+            <div className="main-stats">
+              <strong>Special Defense</strong>
+              <div className="main-stats__progress-container">
+                <div
+                  className="progressbar"
+                  role="progressbar"
+                  style={{width: `${pokemonStats?.specialDefense}%`}}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                >
+                  <small>{pokemonStats?.specialDefense}</small>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="pokemon-stats__footer">
-          <span>Height: {pokemonStats?.height} ft.</span>
-          <span>Weight: {pokemonStats?.weight} lbs.</span>
-          <span>Gender Ratio: {pokemonStats?.genderRatioMale}{pokemonStats?.genderRatioFemale}</span>
-          <span>Catch Rate: {pokemonStats?.captureRate}</span>
-          <span>Abilities:</span>
-          <ul>
-            {pokemonStats?.abilities.map((ability, index) => {
-              return (
-                <li key={index}>{ability}</li>
-              );
-            })}
-          </ul>
-          <ul>
-            {pokemonStats?.types.map((type, index) => {
-              return (
-                <li key={index}>{type}</li>
-                );
-              })}
-          </ul>
-          <span>Habitat: {pokemonStats?.habitat}</span>
-          <span>Hatch Steps: {pokemonStats?.hatchCounter}</span>
-          <span>Capture Rate: {pokemonStats?.captureRate}</span>
+          <div className="pokemon-stats__footer--first-section">
+            <span><strong>Height:</strong> {pokemonStats?.height} ft.</span>
+            <span><strong>Weight:</strong> {pokemonStats?.weight} lbs.</span>
+            <span><strong>Gender Ratio:</strong> {pokemonStats?.genderRatioMale}% / {pokemonStats?.genderRatioFemale}%</span>
+            <span><strong>Catch Rate:</strong> {pokemonStats?.captureRate}%</span>
+          </div>
+          <div className="pokemon-stats__footer--second-section">
+            <div className="second-section__list">
+              <strong>Abilities:</strong>
+              <ul>
+                {pokemonStats?.abilities.map((ability, index) => {
+                  return (
+                    <li key={index}>{ability}</li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className="second-section__list">
+              <strong>Types:</strong>
+              <ul>
+                {pokemonStats?.types.map((type, index) => {
+                  return (
+                    <li key={index}>{type}</li>
+                    );
+                  })}
+              </ul>
+            </div>
+            <span><strong>Habitat:</strong> {pokemonStats?.habitat}</span>
+            <span><strong>Hatch Steps:</strong> {pokemonStats?.hatchCounter} step(s)</span>
+          </div>
         </div>
       </div>
     </main>
