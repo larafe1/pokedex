@@ -1,10 +1,10 @@
-import { usePalette } from 'react-palette';
 import { Flex } from '@chakra-ui/react';
+import { usePalette } from 'react-palette';
 
-import { palette } from '@/styles/theme';
 import PokemonDashboardCardIndex from '@/components/atoms/PokemonDashboardCardIndex';
-import PokemonDashboardCardArtwork from '@/components/molecules/PokemonDashboardCardArtwork';
 import PokemonDashboardCardName from '@/components/atoms/PokemonDashboardCardName';
+import PokemonDashboardCardArtwork from '@/components/molecules/PokemonDashboardCardArtwork';
+import { palette } from '@/styles/theme';
 import { IPokemonEssentials } from '@/types';
 
 function PokemonDashboardCard({ name, url }: IPokemonEssentials) {

@@ -5,9 +5,10 @@ import {
   useRef,
   useCallback
 } from 'react';
-import axios, { AxiosResponse, AxiosError } from 'axios';
 
-import parsePokemonData from '@/utils/parsePokemonData';
+import { AxiosResponse, AxiosError } from 'axios';
+
+import api from '@/services/api';
 import {
   IPokemonEssentials,
   IPokemonRawStats,
@@ -15,6 +16,7 @@ import {
   IPokemonProps,
   IPokemonsProviderProps
 } from '@/types';
+import parsePokemonData from '@/utils/parsePokemonData';
 
 export const PokemonsContext = createContext({} as IPokemonProps);
 
@@ -27,8 +29,8 @@ function PokemonsProvider({ children }: IPokemonsProviderProps) {
 
   const getPokemons = useCallback(async () => {
     setIsLoading(true);
-    await axios
-      .get(`https://pokeapi.co/api/v2/pokemon?limit=${renderCount.current}`)
+    await api
+      .get(`/pokemon?limit=${renderCount.current}`)
       .then((res: AxiosResponse) => {
         const pokemonsData: IPokemonEssentials[] = res.data.results;
         setPokemons(pokemonsData);
@@ -45,11 +47,11 @@ function PokemonsProvider({ children }: IPokemonsProviderProps) {
 
   const getPokemonStatsById = useCallback(async (id: string | number) => {
     setIsLoading(true);
-    await axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    await api
+      .get(`/pokemon/${id}`)
       .then(async ({ data: baseData }: AxiosResponse<IPokemonRawStats>) => {
-        await axios
-          .get(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+        await api
+          .get(`/pokemon-species/${id}`)
           .then(({ data: specieData }: AxiosResponse<IPokemonRawStats>) => {
             const parsedPokemonStats = parsePokemonData({
               ...baseData,

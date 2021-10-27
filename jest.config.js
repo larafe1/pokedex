@@ -1,4 +1,3 @@
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],

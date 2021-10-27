@@ -1,5 +1,7 @@
-import Link from 'next/link';
 import { useState } from 'react';
+
+import Link from 'next/link';
+
 import { Flex, Image } from '@chakra-ui/react';
 
 import Loader from '@/components/atoms/Loader';

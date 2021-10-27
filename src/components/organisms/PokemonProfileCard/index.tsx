@@ -1,8 +1,8 @@
 import { Flex } from '@chakra-ui/react';
 
-import PokemonProfileCardHeader from '@/components/molecules/PokemonProfileCardHeader';
 import PokemonProfileCardBody from '@/components/molecules/PokemonProfileCardBody';
 import PokemonProfileCardFooter from '@/components/molecules/PokemonProfileCardFooter';
+import PokemonProfileCardHeader from '@/components/molecules/PokemonProfileCardHeader';
 import { palette } from '@/styles/theme';
 
 function PokemonProfileCard() {

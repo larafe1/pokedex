@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 
-import { palette } from '@/styles/theme';
 import PokedexButton from '@/components/atoms/PokedexButton';
+import { palette } from '@/styles/theme';
 
 function MenuBar() {
   return (

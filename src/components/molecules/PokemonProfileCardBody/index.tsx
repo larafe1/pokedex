@@ -1,11 +1,11 @@
 import { Flex } from '@chakra-ui/react';
 import { usePalette } from 'react-palette';
 
-import { palette } from '@/styles/theme';
-import { usePokemons } from '@/hooks/usePokemons';
 import PokemonProfileCardArtwork from '@/components/atoms/PokemonProfileCardArtwork';
 import PokemonProfileCardName from '@/components/atoms/PokemonProfileCardName';
 import PokemonProfileCardStatsProgress from '@/components/atoms/PokemonProfileCardStatsProgress';
+import { usePokemons } from '@/hooks/usePokemons';
+import { palette } from '@/styles/theme';
 
 function PokemonProfileCardBody() {
   const { pokemon } = usePokemons();

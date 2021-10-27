@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
+
 import { useDisclosure, ScaleFade } from '@chakra-ui/react';
 
-import { usePokemons } from '@/hooks/usePokemons';
 import Loader from '@/components/atoms/Loader';
 import PokemonProfileCard from '@/components/organisms/PokemonProfileCard';
+import { usePokemons } from '@/hooks/usePokemons';
 import { IPokemonProfileCardTemplateProps } from '@/types';
 
 function PokemonProfileCardTemplate({

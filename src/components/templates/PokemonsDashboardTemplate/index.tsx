@@ -1,9 +1,10 @@
 import { useCallback, useEffect } from 'react';
+
 import { Flex } from '@chakra-ui/react';
 
-import { usePokemons } from '@/hooks/usePokemons';
 import Loader from '@/components/atoms/Loader';
 import PokemonDashboardCard from '@/components/organisms/PokemonDashboardCard';
+import { usePokemons } from '@/hooks/usePokemons';
 
 function PokemonsDashboardTemplate() {
   const { getPokemons, pokemons, isFirstLoad } = usePokemons();

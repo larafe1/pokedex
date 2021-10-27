@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+
 import { Flex, Heading } from '@chakra-ui/react';
 
-import { palette } from '@/styles/theme';
 import { usePokemons } from '@/hooks/usePokemons';
+import { palette } from '@/styles/theme';
 
 function PokedexButton() {
   const router = useRouter();
