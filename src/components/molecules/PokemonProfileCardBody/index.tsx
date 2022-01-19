@@ -20,7 +20,7 @@ function PokemonProfileCardBody() {
     >
       <PokemonProfileCardArtwork artworkUrl={pokemon.artworkUrl} />
       <Flex w="70%" direction="column">
-        <PokemonProfileCardName>{pokemon.name}</PokemonProfileCardName>
+        <PokemonProfileCardName name={pokemon.name} />
         <Flex h="85%" direction="column" justify="space-evenly">
           <PokemonProfileCardStatsProgress
             label="HP"

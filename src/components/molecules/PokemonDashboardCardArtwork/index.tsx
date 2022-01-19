@@ -1,31 +1,27 @@
-import { useState } from 'react';
-
 import Link from 'next/link';
 
 import { Flex, Image } from '@chakra-ui/react';
 
-import Loader from '@/components/atoms/Loader';
+import SkeletonLoader from '@/components/atoms/SkeletonLoader';
 import { IPokemonDashboardCardArtworkProps } from '@/types';
 
 function PokemonDashboardCardArtwork({
-  dexIndex,
-  artworkUrl
+  isArtworkBgLoading,
+  artworkUrl,
+  dexIndex
 }: IPokemonDashboardCardArtworkProps) {
-  const [isImgLoading, setIsImgLoading] = useState(true);
-
   return (
-    <Flex w="100%" justify="center">
-      {isImgLoading && <Loader />}
-      <Link href={`/pokemon/${dexIndex}`} passHref={true}>
-        <Image
-          src={artworkUrl}
-          alt=""
-          maxW="75%"
-          display={isImgLoading ? 'none' : 'block'}
-          onLoad={() => setIsImgLoading(false)}
-        />
-      </Link>
-    </Flex>
+    <>
+      {isArtworkBgLoading ? (
+        <SkeletonLoader w="100%" h="194px" />
+      ) : (
+        <Flex w="100%" h="194px" mt="12px" justify="center">
+          <Link href={`/pokemon/${dexIndex}`} passHref={true}>
+            <Image src={artworkUrl} alt="" maxW="75%" />
+          </Link>
+        </Flex>
+      )}
+    </>
   );
 }
 

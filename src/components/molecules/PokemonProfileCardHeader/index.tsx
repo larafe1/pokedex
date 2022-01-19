@@ -19,7 +19,7 @@ function PokemonProfileCardHeader() {
       borderRadius="10px 10px 0 0"
       bg={palette.darkGray}
     >
-      <PokemonProfileCardIndex>{pokemon.dexIndex}</PokemonProfileCardIndex>
+      <PokemonProfileCardIndex dexIndex={pokemon.dexIndex} />
       {pokemon.isLegendary && (
         <Flex
           w="6.5rem"

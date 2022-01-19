@@ -17,8 +17,15 @@ export interface ILoaderProps {
   fullWidth?: boolean;
 }
 
+export interface ISkeletonProps {
+  w: string;
+  h: string;
+}
+
 export interface IPokemonCardProps {
-  children: ReactNode;
+  isArtworkBgLoading?: boolean;
+  name?: string;
+  dexIndex?: number;
 }
 
 export interface IPokemonCardArtworkProps {
@@ -28,6 +35,7 @@ export interface IPokemonCardArtworkProps {
 export interface IPokemonDashboardCardArtworkProps
   extends IPokemonCardArtworkProps {
   dexIndex: number;
+  isArtworkBgLoading: boolean;
 }
 
 export interface IPokemonProfileCardStatsProps {

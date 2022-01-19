@@ -1,9 +1,13 @@
 import { Flex, Text } from '@chakra-ui/react';
 
+import SkeletonLoader from '@/components/atoms/SkeletonLoader';
 import { palette } from '@/styles/theme';
 import { IPokemonCardProps } from '@/types';
 
-function PokemonDashboardCardName({ children }: IPokemonCardProps) {
+function PokemonDashboardCardName({
+  isArtworkBgLoading,
+  name
+}: IPokemonCardProps) {
   return (
     <Flex
       w="100%"
@@ -12,7 +16,11 @@ function PokemonDashboardCardName({ children }: IPokemonCardProps) {
       align="center"
       bg={palette.lightGray}
     >
-      <Text fontWeight="600">{children}</Text>
+      {isArtworkBgLoading ? (
+        <SkeletonLoader w="90%" h="1.3rem" />
+      ) : (
+        <Text fontWeight="600">{name}</Text>
+      )}
     </Flex>
   );
 }
