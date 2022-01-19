@@ -21,22 +21,38 @@ import parsePokemonData from '@/utils/parsePokemonData';
 
 const PokemonsContext = createContext({} as IPokemonProps);
 
+type GetPokemonsResponse = {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: IPokemonEssentials[];
+};
+
 function PokemonsProvider({ children }: IPokemonsProviderProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [isFirstRender, setIsFirstRender] = useState(true);
   const [pokemons, setPokemons] = useState([] as IPokemonEssentials[]);
   const [pokemon, setPokemon] = useState({} as IPokemonParsedStats);
   const renderCount = useRef(50);
+  const hasReachedEnd = useRef(false);
 
   const getPokemons = useCallback(async () => {
+    if (hasReachedEnd.current) return;
+
     try {
       setIsLoading(true);
 
-      const { data }: AxiosResponse<{ results: IPokemonEssentials[] }> =
-        await api.get(`/pokemon?limit=${renderCount.current}`);
+      const { data } = await api.get<GetPokemonsResponse>(
+        `/pokemon?limit=${renderCount.current}`
+      );
       const pokemonsData = data.results;
 
+      if (!data.next) {
+        hasReachedEnd.current = true;
+      }
+
       renderCount.current = pokemonsData.length + 50;
+
       setPokemons(pokemonsData);
     } catch (err) {
       console.error(err);
@@ -77,7 +93,8 @@ function PokemonsProvider({ children }: IPokemonsProviderProps) {
         getPokemons,
         getPokemonStatsById,
         pokemons,
-        pokemon
+        pokemon,
+        hasReachedEnd: hasReachedEnd.current
       }}
     >
       {children}

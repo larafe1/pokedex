@@ -11,6 +11,7 @@ export interface IPokemonProps {
   getPokemonStatsById: (id: string | number) => Promise<void>;
   pokemons: IPokemonEssentials[];
   pokemon: IPokemonParsedStats;
+  hasReachedEnd: boolean;
 }
 
 export interface ILoaderProps {
