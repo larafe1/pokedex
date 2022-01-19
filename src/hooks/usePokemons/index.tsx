@@ -46,6 +46,7 @@ function PokemonsProvider({ children }: IPokemonsProviderProps) {
         `/pokemon?limit=${renderCount.current}`
       );
       const pokemonsData = data.results;
+      console.log(pokemonsData);
 
       if (!data.next) {
         hasReachedEnd.current = true;

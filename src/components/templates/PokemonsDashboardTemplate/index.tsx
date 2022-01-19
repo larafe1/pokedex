@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 import Loader from '@/components/atoms/Loader';
 import PokemonsList from '@/components/organisms/PokemonsList';
@@ -6,19 +6,19 @@ import { usePokemons } from '@/hooks/usePokemons';
 
 function PokemonsDashboardTemplate() {
   const { getPokemons, isFirstRender } = usePokemons();
+  const isWaiting = useRef(false);
 
   const onApproxPageBottom = useCallback(() => {
-    let isWaiting = false;
     const scrollPosition = window.scrollY;
     const windowHeight = document.body.offsetHeight - window.innerHeight;
 
-    if (scrollPosition > windowHeight * 0.75 && !isWaiting) {
+    if (scrollPosition > windowHeight * 0.75 && !isWaiting.current) {
       getPokemons();
-      isWaiting = true;
+      isWaiting.current = true;
 
       setTimeout(() => {
-        isWaiting = false;
-      }, 500);
+        isWaiting.current = false;
+      }, 600);
     }
   }, [getPokemons]);
 
