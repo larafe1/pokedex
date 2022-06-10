@@ -36,7 +36,6 @@ export interface IPokemonCardArtworkProps {
 export interface IPokemonDashboardCardArtworkProps
   extends IPokemonCardArtworkProps {
   dexIndex: number;
-  isArtworkBgLoading: boolean;
 }
 
 export interface IPokemonProfileCardStatsProps {

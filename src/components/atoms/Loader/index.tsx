@@ -1,6 +1,6 @@
 import { Flex, Spinner } from '@chakra-ui/react';
 
-import { palette } from '@/styles/theme';
+import { Colors } from '@/styles/theme';
 import { ILoaderProps } from '@/types';
 
 function Loader({ fullWidth }: ILoaderProps) {
@@ -10,7 +10,7 @@ function Loader({ fullWidth }: ILoaderProps) {
         thickness="5px"
         speed="0.65s"
         emptyColor="gray.100"
-        color={palette.darkRed}
+        color={Colors.border}
         size="xl"
       />
     </Flex>

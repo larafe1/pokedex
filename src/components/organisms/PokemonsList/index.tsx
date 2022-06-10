@@ -7,10 +7,10 @@ function PokemonsList() {
   const { pokemons, hasReachedEnd } = usePokemons();
 
   return (
-    <Flex pt="3rem" wrap="wrap" justify="center">
-      {pokemons.map((pokemon) => {
-        return <PokemonDashboardCard key={pokemon.name} {...pokemon} />;
-      })}
+    <Flex wrap="wrap" position="absolute" justify="center">
+      {pokemons.map((pokemon) => (
+        <PokemonDashboardCard key={pokemon.name} {...pokemon} />
+      ))}
 
       {hasReachedEnd && (
         <Text

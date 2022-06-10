@@ -9,14 +9,25 @@ function PokemonsDashboardTemplate() {
   const isWaiting = useRef(false);
 
   const onApproxPageBottom = useCallback(() => {
-    const scrollPosition = window.scrollY;
-    const windowHeight = document.body.offsetHeight - window.innerHeight;
+    const windowHeight = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.clientHeight,
+      document.documentElement.scrollHeight,
+      document.documentElement.offsetHeight
+    );
 
-    if (scrollPosition > windowHeight * 0.75 && !isWaiting.current) {
+    let timeout: ReturnType<typeof setTimeout> | null = null;
+
+    if (window.innerHeight + window.scrollY >= windowHeight) {
       getPokemons();
       isWaiting.current = true;
 
-      setTimeout(() => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+
+      timeout = setTimeout(() => {
         isWaiting.current = false;
       }, 600);
     }
