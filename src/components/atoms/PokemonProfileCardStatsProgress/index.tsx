@@ -1,5 +1,6 @@
 import { Flex, Text, Progress } from '@chakra-ui/react';
 
+import { Colors } from '@/styles/theme';
 import { IPokemonProfileCardStatsProgressProps } from '@/types';
 
 function PokemonProfileCardStatsProgress({
@@ -14,15 +15,17 @@ function PokemonProfileCardStatsProgress({
       align="center"
       animation="grow-bounce .35s ease-in"
     >
-      <Text fontWeight="bold">{label}</Text>
+      <Flex minWidth="7rem">
+        <Text fontWeight="bold">{label}</Text>
+      </Flex>
       <Progress
-        value={value as number}
-        w="md"
-        h="1.3rem"
-        colorScheme={colorScheme}
-        borderRadius="3px"
         hasStripe
         isAnimated
+        value={+value}
+        w="md"
+        h="1.3rem"
+        border={`1px solid ${Colors.border}`}
+        colorScheme={colorScheme}
       />
     </Flex>
   );

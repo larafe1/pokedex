@@ -2,7 +2,7 @@ import { Flex } from '@chakra-ui/react';
 
 import PokemonProfileCardStatsText from '@/components/atoms/PokemonProfileCardStatsText';
 import { usePokemons } from '@/hooks/usePokemons';
-import { palette } from '@/styles/theme';
+import { Colors } from '@/styles/theme';
 
 function PokemonProfileCardFooter() {
   const { pokemon } = usePokemons();
@@ -11,9 +11,8 @@ function PokemonProfileCardFooter() {
     <Flex
       w="100%"
       h="35%"
-      bg={palette.darkGray}
-      borderTop={`1px solid ${palette.border}`}
-      borderRadius="0 0 10px 10px"
+      bg={Colors.lightGray}
+      border={`2px solid ${Colors.text}`}
     >
       <Flex
         w="50%"

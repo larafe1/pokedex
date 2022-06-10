@@ -2,7 +2,7 @@ import { Flex, Text } from '@chakra-ui/react';
 
 import PokemonProfileCardIndex from '@/components/atoms/PokemonProfileCardIndex';
 import { usePokemons } from '@/hooks/usePokemons';
-import { palette } from '@/styles/theme';
+import { Colors } from '@/styles/theme';
 
 function PokemonProfileCardHeader() {
   const { pokemon } = usePokemons();
@@ -15,9 +15,8 @@ function PokemonProfileCardHeader() {
       direction="row"
       justify="space-between"
       align="center"
-      borderBottom={`1px solid ${palette.border}`}
-      borderRadius="10px 10px 0 0"
-      bg={palette.darkGray}
+      bg={Colors.lightGray}
+      border={`2px solid ${Colors.text}`}
     >
       <PokemonProfileCardIndex dexIndex={pokemon.dexIndex} />
       {pokemon.isLegendary && (
